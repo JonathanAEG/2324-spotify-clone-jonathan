@@ -72,16 +72,17 @@ const LikeButton: React.FC<LikeButtonProps> = ({songId}) => {
                 .insert({
                     song_id: songId,
                     user_id: user.id
-                })
+                });
 
-                if(error){
+            if(error){
 
-                    toast.error(error.message);
-                }else{
-                    setIsliked(true)
-                    toast.success('Liked!')
-                }   
+                toast.error(error.message);
+            }else{
+                setIsliked(true)
+                toast.success('Liked!')
+            }   
         }
+        router.refresh();
     }
 
 
