@@ -153,7 +153,7 @@ const manageSubscriptionStatusChange = async (
 
   const { error } = await supabaseAdmin
     .from('subscriptions')
-    .update([subscriptionData]);
+    .upsert([subscriptionData]);
   if (error) throw error;
   console.log(
     `Inserted/updated subscription [${subscription.id}] for user [${uuid}]`
